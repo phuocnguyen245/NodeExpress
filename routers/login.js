@@ -1,0 +1,11 @@
+import express from 'express';
+import { register, login, searchUser, getUser, generateQRCode, verifyGenerateQRCode } from '../controllers/loginController.js';
+import verify from '../middleware/auth/index.js';
+const router = express.Router();
+router.post('/register', register);
+router.post('/login', login);
+router.get('/user/search', searchUser);
+router.get('/user/profile', verify, getUser);
+router.post('/generateQRCode', verify, generateQRCode);
+router.post('/verifyQRCode', verifyGenerateQRCode);
+export default router;
