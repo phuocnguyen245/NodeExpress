@@ -1,12 +1,12 @@
 import { orfusJson } from "../constant/orfus.js";
 
-
 export const getOrfus = async (req, res) => {
-  console.log('day');
   try {
     const q = req.query.mock;
-    if (Object.keys(orfusJson).includes(q)) {
-      return res.status(200).json(orfusJson[q]);
+    const findIndex = req.url.split('').findIndex((x) => x === '?')
+    const url = req.url.split('').slice(1, findIndex).join('');
+    if (Object.keys(orfusJson).includes(url)) {
+      return res.status(200).json(orfusJson[url][q]);
     }
     return res.status(400).json({});
   } catch (error) {
