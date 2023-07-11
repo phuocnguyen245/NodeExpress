@@ -8,6 +8,7 @@ import verify from '../middleware/auth/index.js';
 import order from './order.js';
 import orfus from './orfus.js';
 import dashboard from './dashboard.js';
+import socket from './socket.js';
 
 router.use('/api', login);
 router.use('/api/cart', verify, cart);
@@ -16,4 +17,5 @@ router.use('/api/categories', categories);
 router.use('/api/order', order);
 router.use('/api/v1', orfus);
 router.use('/', dashboard)
+//socket
 export default router;
